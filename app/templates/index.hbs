@@ -1,0 +1,39 @@
+<div>
+  <div></div>
+  <h2>Add Contact Form</h2>
+  <form>
+    First Name:<br>
+    {{input type="text" value=Firstname autofocus="autofocus"}}
+    <br>
+    Surname:<br>
+    {{input type="text" value=Surname autofocus="autofocus"}}
+    <br>
+    Phone Number:<br>
+    {{input type="text" value=Phone autofocus="autofocus"}}
+    <br>
+    Mobile Number:<br>
+    {{input type="text" value=Mobile autofocus="autofocus"}}
+    <br><br>
+    <button type="button" {{action "addcontact"}}>Submit</button>
+  </form>
+</div>
+<div class="jumbo">
+  <div class="right tomster"></div>
+  <table>
+    <caption>My Contacts</caption>
+    <thead>
+    <tr>
+      <th>Full Name</th>
+      <th>Phone No.</th>
+      <th>Mobile No.</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each model as |contact|}}
+      {{contact-details Fullname=contact.Fullname Phone=contact.Phone Mobile=contact.Mobile}}
+    {{/each}}
+  </tbody>
+  </table>
+</div>
+{{outlet}}
